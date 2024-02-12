@@ -19,6 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://beamanalytics.b-cdn.net/beam.min.js"
+          data-token="a07e2826-5910-4684-9e69-0ec4388a0509"
+          async
+        ></script>
+      </head>
       <body className={inter.className}>
         <ContextProvider>{children} </ContextProvider>
       </body>
