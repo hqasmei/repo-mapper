@@ -57,7 +57,6 @@ export async function POST(req: Request) {
     const data = await fetchDirectoryContents(owner, repoName, '', token);
 
     return NextResponse.json(data || null);
-    return null;
   } catch (error) {
     console.log('[PROJECT_POST]', error);
     return new NextResponse('Internal Error', { status: 500 });
