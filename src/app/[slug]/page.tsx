@@ -61,18 +61,19 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <main className="flex min-h-screen flex-col space-y-6 p-4 md:p-24 items-start">
-      <Link href="/" className="flex  group flex-row space-x-1 items-center">
-        <ArrowLeft
-          size={16}
-          className="group-hover:-translate-x-1 duration-200 "
-        />
-        <span>Back</span>
-      </Link>
-
-      <pre>
-        <code>{repoStructure}</code>
-      </pre>
+    <main className="flex flex-col  py-24  w-full  items-center justify-center">
+      <div className="max-w-2xl flex w-full flex-col space-y-6">
+        <Link href="/" className="flex  group flex-row space-x-1 items-center">
+          <ArrowLeft
+            size={16}
+            className="group-hover:-translate-x-1 duration-200 "
+          />
+          <span>Back</span>
+        </Link>
+        <pre>
+          <code>{repoStructure}</code>
+        </pre>
+      </div>
     </main>
   );
 }

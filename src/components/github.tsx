@@ -78,12 +78,9 @@ export default function Github() {
     <div className="grid grid-cols-1 gap-8">
       {status === 'authenticated' && (
         <div className="flex flex-col space-y-10">
-          <div>
-            <span className="font-bold text-2xl">Github</span>
-            <div>
-              <h2> Welcome {session.user.email} 😀</h2>
-              <Button onClick={() => signOut()}>Sign out</Button>
-            </div>
+          <div className="flex flex-row justify-between py-4 items-center">
+            <h2> Welcome {session.user.email} 😀</h2>
+            <Button onClick={() => signOut()}>Sign out</Button>
           </div>
 
           <RepositoriesList />
