@@ -55,6 +55,7 @@ export default function Hero() {
           <span> Connect to get started</span>
         </Button>
       </div>
+      <code>testing</code>
     </div>
   );
 }

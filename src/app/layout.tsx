@@ -21,6 +21,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
         <script
           src="https://beamanalytics.b-cdn.net/beam.min.js"
           data-token="a07e2826-5910-4684-9e69-0ec4388a0509"
