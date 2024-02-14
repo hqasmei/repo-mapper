@@ -34,7 +34,6 @@ const parseRepoData = (data: any[], prefix: string = '') => {
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const { data: session } = useSession();
-  const [repo, setRepo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const searchParams = useSearchParams();
@@ -48,10 +47,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         repoName: params.slug,
         token: session?.accessToken,
       });
+
       const respoData = response.data;
+
       const structure = parseRepoData(respoData);
       setRepoStructure(structure);
-      setRepo(respoData);
     }
 
     fetchGithubRepo();
@@ -61,19 +61,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <main className="flex flex-col  py-24  w-full  items-center justify-center">
-      <div className="max-w-2xl flex w-full flex-col space-y-6">
-        <Link href="/" className="flex  group flex-row space-x-1 items-center">
-          <ArrowLeft
-            size={16}
-            className="group-hover:-translate-x-1 duration-200 "
-          />
-          <span>Back</span>
-        </Link>
-        <pre>
-          <code>{repoStructure}</code>
-        </pre>
-      </div>
-    </main>
+    <div className="flex w-full flex-col py-8 space-y-6">
+      <Link href="/" className="flex  group flex-row space-x-1 items-center">
+        <ArrowLeft
+          size={16}
+          className="group-hover:-translate-x-1 duration-200 "
+        />
+        <span>Back</span>
+      </Link>
+      <span className="font-bold text-xl">{params.slug}</span>
+      <pre>
+        <code>{repoStructure}</code>
+      </pre>
+    </div>
   );
 }

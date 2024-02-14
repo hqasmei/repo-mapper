@@ -4,11 +4,8 @@ import React from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Icon } from '@iconify/react';
-import { signOut, useSession } from 'next-auth/react';
 
-export default function Welcome() {
-  const { data: session, status } = useSession();
-
+export default function Hero() {
   const popupCenter = (url: string) => {
     const dualScreenLeft = window.screenLeft ?? window.screenX;
     const dualScreenTop = window.screenTop ?? window.screenY;
@@ -40,24 +37,24 @@ export default function Welcome() {
   };
 
   return (
-    <main className="w-full">
-      <div className="flex flex-col space-y-2">
-        <h1 className="font-bold text-2xl">RepoMapper</h1>
-        <span>Turn your github repo into a visual folder structure.</span>
-        {status !== 'authenticated' && (
-          <div>
-            <div className="border rounded-md flex flex-row items-center justify-between space-x-2 text-sm h-16 px-4">
-              <Icon icon="mdi:github" width="36" height="36" />
-              <span className="text-slate-600">
-                Connect your github account to see you dashboard.
-              </span>
-              <Button onClick={() => popupCenter('/github-signin')}>
-                Start
-              </Button>
-            </div>
-          </div>
-        )}
+    <div className="flex flex-col">
+      <span className="text-3xl md:text-5xl font-bold mt-8">
+        Visualize Your GitHub Repos in ASCII.
+      </span>
+      <span className="text-neutral-700 text-lg mt-2">
+        RepoMapper converts your GitHub repository into clear ASCII diagrams,
+        enhancing documentation and code organization understanding with an
+        invaluable visualization tool.
+      </span>
+      <div>
+        <Button
+          onClick={() => popupCenter('/github-signin')}
+          className="flex flex-row space-x-2 items-center mt-4"
+        >
+          <Icon icon="mdi:github" width="28" height="28" />
+          <span> Connect to get started</span>
+        </Button>
       </div>
-    </main>
+    </div>
   );
 }

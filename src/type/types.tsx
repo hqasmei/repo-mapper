@@ -36,3 +36,6 @@ export type Repository = {
   topics: string[];
   visibility: string;
 };
+export type IconProps = {
+  size: number;
+};

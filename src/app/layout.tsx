@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 
 import { ContextProvider } from '@/components/context-provider';
+import Header from '@/components/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,7 +28,16 @@ export default function RootLayout({
         ></script>
       </head>
       <body className={inter.className}>
-        <ContextProvider>{children} </ContextProvider>
+        <ContextProvider>
+          <main className="w-full">
+            <div className="p-4 mt-10 flex w-full flex-col space-y-6 items-center justify-center text-start">
+              <div className="max-w-5xl flex w-full flex-col">
+                <Header />
+                {children}
+              </div>
+            </div>
+          </main>
+        </ContextProvider>
       </body>
     </html>
   );
