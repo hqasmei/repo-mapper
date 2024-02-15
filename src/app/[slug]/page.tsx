@@ -5,11 +5,10 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-import { Button } from '@/components/ui/button';
-import { Repository } from '@/type/types';
+import CodeSnippet from '@/components/code-snippet';
 import axios from 'axios';
 import { ArrowLeft, Star } from 'lucide-react';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 const parseRepoData = (data: any[], prefix: string = '') => {
   let structure = '';
@@ -70,9 +69,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <span>Back</span>
       </Link>
       <span className="font-bold text-xl">{params.slug}</span>
-      <pre>
-        <code>{repoStructure}</code>
-      </pre>
+      <div className="w-full flex flex-col items-center justify-center sm:items-start">
+        <CodeSnippet code={repoStructure} width="full" />
+      </div>
     </div>
   );
 }
