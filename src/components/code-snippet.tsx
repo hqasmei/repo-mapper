@@ -7,7 +7,7 @@ const CodeSnippet = ({ code, width }: { code: any; width: string }) => {
 
   return (
     <div
-      className={`bg-gray-800 text-white pt-4 px-8 pb-8 rounded-lg font-mono text-sm ${width === 'full' ? 'w-full' : `w-[${width}px]`}`}
+      className={`bg-gray-800 text-white pt-4 px-8 pb-8 rounded-lg font-mono text-sm ${width}`}
     >
       <pre className="whitespace-pre-wrap overflow-x-auto relative">
         <code>{code}</code>

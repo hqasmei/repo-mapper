@@ -70,7 +70,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </Link>
       <span className="font-bold text-xl">{params.slug}</span>
       <div className="w-full flex flex-col items-center justify-center sm:items-start">
-        <CodeSnippet code={repoStructure} width="full" />
+        <CodeSnippet code={repoStructure} width="w-full" />
       </div>
     </div>
   );

@@ -81,7 +81,7 @@ export default function Hero() {
       </div>
 
       <div className="w-full flex flex-col items-center justify-center sm:items-start">
-        <CodeSnippet code={code} width="400" />
+        <CodeSnippet code={code} width="w-[370px]" />
       </div>
     </div>
   );
